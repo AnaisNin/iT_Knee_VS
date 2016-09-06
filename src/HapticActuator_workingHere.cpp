@@ -10,7 +10,7 @@
 #define IMU_LPMS_USBAL
 #define FOOT_SENSOR
 #define KNEEMOTOR_NEW //Left leg
-#define KNEEMOTOR_NEW_2 //right leg
+//#define KNEEMOTOR_NEW_2 //right leg
 //#define KNEEMOTOR_OLD
 
 #include "stdafx.h"
