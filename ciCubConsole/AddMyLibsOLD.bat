@@ -1,0 +1,1 @@
+robocopy ..\..\BoardLibrary\Debug\ ..\Debug BoardLibrary.dll

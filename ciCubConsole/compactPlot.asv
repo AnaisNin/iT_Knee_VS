@@ -1,0 +1,30 @@
+function jointPlot()
+
+clear all
+close all
+clf
+
+load adata.txt
+
+figure(1);
+subplot(2,2,1);
+plot(adata(:,1),adata(:,2));hold on;
+plot(adata(:,1),adata(:,3),'r');
+xlabel('Time (sec)');
+ylabel('M1 Angle (rad)');
+
+subplot(2,2,2);
+plot(adata(:,1),(2*10000*adata(:,6)*adata(:,6)*0.015^2)/(0.015-adata(:,6));hold on;
+plot(adata(:,1),adata(:,7),'r');
+xlabel('Time (sec)');
+ylabel('delta1 (m)');
+
+subplot(2,2,3);
+plot(adata(:,1),adata(:,5));hold on;
+xlabel('Time (sec)');
+ylabel('M1 Torque (Nm)');
+
+% subplot(3,2,4);
+% plot(adata(:,1),adata(:,9));
+% xlabel('time (sec)');
+% ylabel('Link deflection (rad)');

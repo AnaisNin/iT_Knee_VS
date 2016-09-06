@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>iT_Knee_1</ProjectName>
+    <ProjectGuid>{51556E02-269E-4311-8CBF-9E1860C95035}</ProjectGuid>
+    <RootNamespace>ciCubConsole</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <SourcePath>$(SourcePath)</SourcePath>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>AddMyLibs.bat</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include;..\include;..\..\iT_Knee_workingHere\include;C:\OpenMAT\OpenMAT-1.3.4\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\Debug;C:\OpenMAT\OpenMAT-1.3.4\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>Ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;LpSensorD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>msvcr120d</DelayLoadDLLs>
+    </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\arch\win32\vncp_services.c" />
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\vn100.c" />
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\vn200.c" />
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\vndevice.c" />
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\VN_math.c" />
+    <ClCompile Include="..\src\CPrecisionClock.cpp" />
+    <ClCompile Include="..\src\CThread.cpp" />
+    <ClCompile Include="..\src\devMeasurementFns.cpp" />
+    <ClCompile Include="..\src\HapticActuator_workingHere.cpp" />
+    <ClCompile Include="..\src\HumanBodyParam.cpp" />
+    <ClCompile Include="..\src\HumanDynModel.cpp" />
+    <ClCompile Include="..\src\mUtils.cpp" />
+    <ClCompile Include="..\src\shTime.cpp" />
+    <ClCompile Include="..\src\stdafx.cpp" />
+    <ClCompile Include="..\src\UDP_Communication.cpp" />
+    <ClCompile Include="..\src\UDP_server.cpp" />
+    <ClCompile Include="..\src\utils.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vectornav.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn100.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn200.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vncp_services.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vndevice.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vnint.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_common.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_errorCodes.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_kinematics.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_linearAlgebra.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\VN_math.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_math_window.h" />
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\VN_type.h" />
+    <ClInclude Include="..\include\BoardLibrary.h" />
+    <ClInclude Include="..\include\HumanBodyParam.h" />
+    <ClInclude Include="..\include\HumanDynModel.h" />
+    <ClInclude Include="..\include\mUtils.h" />
+    <ClInclude Include="..\include\phil_board.h" />
+    <ClInclude Include="..\include\userConfig.h" />
+    <ClInclude Include="..\include\utils.h" />
+    <ClInclude Include="CPrecisionClock.h" />
+    <ClInclude Include="CThread.h" />
+    <ClInclude Include="devMeasurementFns.h" />
+    <ClInclude Include="shTime.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="UDP_Communication.h" />
+    <ClInclude Include="UDP_server.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

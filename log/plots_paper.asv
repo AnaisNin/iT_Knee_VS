@@ -1,0 +1,268 @@
+clear all;close all;clc;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%     Read data from file    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+flg_sitStand=1;
+flg_squat_load=0;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Squat load
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if(flg_squat_load)
+%Knee bending, torso straight, 0kg load
+id_file_A = fopen('1st_sept_16\stillTrunk_kneeBending_load\logData_1_noLoad.txt','r'); % open file and return file handle
+format_file_A = '%f %f %f %f %f %f %f %f'; %format of the data - each line - within the file
+size_buffer_A =[8 Inf]; % size of the transpose of the data file==[numColsFile numLinesFile]
+buffer_A = fscanf(id_file_A,format_file_A,size_buffer_A);
+fclose(id_file_A);
+data_file_A=buffer_A'; %transpose to get it identical to the file
+%Knee bending, torso straight, 10kg load
+id_file_B = fopen('1st_sept_16\stillTrunk_kneeBending_load\logData_4_10kg_alongBodySym.txt','r'); % open file and return file handle
+format_file_B = '%f %f %f %f %f %f %f %f'; %format of the data - each line - within the file
+size_buffer_B =[8 Inf]; % size of the transpose of the data file==[numColsFile numLinesFile]
+buffer_B = fscanf(id_file_B,format_file_B,size_buffer_B);
+fclose(id_file_B);
+data_file_B=buffer_B'; %transpose to get it identical to the file
+%Knee bending, torso straight, 20kg load
+id_file_C = fopen('1st_sept_16\stillTrunk_kneeBending_load\logData_7_20kg_alongBodySym_GOOD.txt','r'); % open file and return file handle
+format_file_C = '%f %f %f %f %f %f %f %f'; %format of the data - each line - within the file
+size_buffer_C =[8 Inf]; % size of the transpose of the data file==[numColsFile numLinesFile]
+buffer_C = fscanf(id_file_C,format_file_C,size_buffer_C);
+fclose(id_file_C);
+data_file_C=buffer_C'; %transpose to get it identical to the file
+
+%For all files:
+%runTime=data_file(:,1);
+%torqueAnkle=data_file(:,2);
+%torqueAnkle_filtered=data_file(:,3);
+%torqueKnee=data_file(:,4);
+%theta1=data_file(:,5);
+%theta2=data_file(:,6);
+%theta3=data_file(:,7);
+%Fz=data_file(:,8);
+
+runTime_kneeBending_0kg=data_file_A(:,1);
+torqueKnee_kneeBending_0kg=data_file_A(:,4);
+
+runTime_kneeBending_10kg=data_file_B(:,1);
+torqueKnee_kneeBending_10kg=data_file_B(:,4);
+
+runTime_kneeBending_20kg=data_file_C(:,1);
+torqueKnee_kneeBending_20kg=data_file_C(:,4);
+
+figure('Color',[1 1 1])
+plot(runTime_kneeBending_0kg,torqueKnee_kneeBending_0kg,'k');
+hold on
+plot(runTime_kneeBending_10kg,torqueKnee_kneeBending_10kg,'b');
+hold on
+plot(runTime_kneeBending_20kg,torqueKnee_kneeBending_20kg,'r');
+legend 'torqueKnee 0kg' 'torqueKnee 10kg' 'torqueKnee 20kg'
+xlabel 'Time (s)'
+ylabel 'Joint Torque (Nm)'
+title 'Knee torque estimation - Squatting - Load effect'
+
+end%If flg_squat_load
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sit Stand
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Us experimental data
+id_file_D = fopen('1st_sept_16\sit_standUp\logData_5.txt','r'); % open file and return file handle
+format_file_D = '%f %f %f %f %f %f %f'; %format of the data - each line - within the file
+size_buffer_D =[7 Inf]; % size of the transpose of the data file==[numColsFile numLinesFile]
+buffer_D = fscanf(id_file_D,format_file_D,size_buffer_D);
+fclose(id_file_D);
+data_file_D=buffer_D'; %transpose to get it identical to the file
+
+runTime_sitStand_exp=data_file_D(:,1);
+torqueAnkle_sitStand_exp=data_file_D(:,2);
+torqueAnkle_filtered_sitStand_exp=data_file_D(:,3);
+torqueKnee_sitStand_exp=data_file_D(:,4);
+theta1_sitStand_exp_rad=data_file_D(:,5)*pi()/180;
+theta2_sitStand_exp_rad=data_file_D(:,6)*pi()/180;
+theta3_sitStand_exp_rad=data_file_D(:,7)*pi()/180;
+
+%Nasa
+
+%Delta height
+
+%Delta theta1
+
+%For all files in the folder
+%runTime=data_file(:,1);
+%torqueAnkle=data_file(:,2);
+%torqueAnkle_filtered=data_file(:,3);
+%torqueKnee=data_file(:,4);
+%theta1=data_file(:,5);
+%theta2=data_file(:,6);
+%theta3=data_file(:,7);
+%Fz=data_file(:,8);
+
+%Delta height
+
+%double l_torqueKnee =
+%		this->m_tauAnkle_filtered
+%		- g_GRAVITYacc*ap_HBparam->m_mShank*ap_HBparam->m_lShank_com*cos(this->m_theta1)
+%		- g_GRAVITYacc*ap_HBparam->m_mATIsensor*ap_HBparam->m_lShank_ATIsensor*cos(this->m_theta1)
+%		- ap_HBparam->m_lShank*cos(this->m_theta1)*g_GRAVITYacc*(ap_HBparam->m_mThigh + ap_HBparam->m_mITmotor + 0.5*ap_HBparam->m_mTorso + 0.5*ap_HBparam->m_mHead + ap_HBparam->m_mUpperArm + ap_HBparam->m_mForearm + ap_HBparam->m_mHand+ 0.5*a_massLoad);
+
+% Human Body Param
+tot_height_exp=1.83;%m
+tot_height=tot_height_exp;
+tot_mass=85.5;%kg
+%For man, cf table litterature
+m_shank=0.0433*tot_mass;
+m_thigh=0.1416*tot_mass;
+m_torso=0.4346*tot_mass;
+m_head=0.0694*tot_mass;
+m_upperArm=0.0271*tot_mass;
+m_forearm=0.0162*tot_mass;
+m_hand=0.0061*tot_mass;
+m_load=0;
+%lenghts
+l_shank=0.25290*tot_height;
+l_shank_com=0.5605*l_shank;
+l_ATIsensor=0.8535*l_shank;
+% Constants
+m_itMotor=1;%kg
+m_ATIsensor=0.5;
+g_gravity=9.80664999999999423;
+
+%computed from experimental data
+torqueKnee_sitStand_computed=torqueAnkle_filtered_sitStand_exp-g_gravity*m_shank*l_shank_com*cos(theta1_sitStand_exp_rad)-g_gravity*m_ATIsensor*l_ATIsensor*cos(theta1_sitStand_exp_rad)-l_shank*cos(theta1_sitStand_exp_rad)*g_gravity*(m_thigh+m_itMotor+0.5*m_torso+0.5*m_head+m_upperArm+m_forearm+m_hand+0.5*m_load);
+%double l_torqueKnee =
+%		this->m_tauAnkle_filtered
+%		- g_GRAVITYacc*ap_HBparam->m_mShank*ap_HBparam->m_lShank_com*cos(this->m_theta1)
+%		- g_GRAVITYacc*ap_HBparam->m_mATIsensor*ap_HBparam->m_lShank_ATIsensor*cos(this->m_theta1)
+%		- ap_HBparam->m_lShank*cos(this->m_theta1)*g_GRAVITYacc*(ap_HBparam->m_mThigh + ap_HBparam->m_mITmotor + 0.5*ap_HBparam->m_mTorso + 0.5*ap_HBparam->m_mHead + ap_HBparam->m_mUpperArm + ap_HBparam->m_mForearm + ap_HBparam->m_mHand+ 0.5*a_massLoad);
+
+
+%Delta height
+deltaHeight=0.025;%m
+%delta height plus
+tot_height=tot_height_exp+deltaHeight;
+l_shank=0.25290*tot_height;
+l_shank_com=0.5605*l_shank;
+l_ATIsensor=0.8535*l_shank;
+torqueKnee_sitStand_dHeight_p=torqueAnkle_filtered_sitStand_exp-g_gravity*m_shank*l_shank_com*cos(theta1_sitStand_exp_rad)-g_gravity*m_ATIsensor*l_ATIsensor*cos(theta1_sitStand_exp_rad)-l_shank*cos(theta1_sitStand_exp_rad)*g_gravity*(m_thigh+m_itMotor+0.5*m_torso+0.5*m_head+m_upperArm+m_forearm+m_hand+0.5*m_load);
+%delta height minus
+tot_height=tot_height_exp-deltaHeight;
+l_shank=0.25290*tot_height;
+l_shank_com=0.5605*l_shank;
+l_ATIsensor=0.8535*l_shank;
+torqueKnee_sitStand_dHeight_m=torqueAnkle_filtered_sitStand_exp-g_gravity*m_shank*l_shank_com*cos(theta1_sitStand_exp_rad)-g_gravity*m_ATIsensor*l_ATIsensor*cos(theta1_sitStand_exp_rad)-l_shank*cos(theta1_sitStand_exp_rad)*g_gravity*(m_thigh+m_itMotor+0.5*m_torso+0.5*m_head+m_upperArm+m_forearm+m_hand+0.5*m_load);
+
+%Delta theta1
+delta_theta1_rad=5*pi()/180;
+theta1_sitStand_dt1p=theta1_sitStand_exp_rad+delta_theta1_rad;
+torqueKnee_sitStand_dTheta1_p=torqueAnkle_filtered_sitStand_exp-g_gravity*m_shank*l_shank_com*cos(theta1_sitStand_dt1p)-g_gravity*m_ATIsensor*l_ATIsensor*cos(theta1_sitStand_dt1p)-l_shank*cos(theta1_sitStand_dt1p)*g_gravity*(m_thigh+m_itMotor+0.5*m_torso+0.5*m_head+m_upperArm+m_forearm+m_hand+0.5*m_load);
+theta1_sitStand_dt1m=theta1_sitStand_exp_rad-delta_theta1_rad;
+torqueKnee_sitStand_dTheta1_m=torqueAnkle_filtered_sitStand_exp-g_gravity*m_shank*l_shank_com*cos(theta1_sitStand_dt1m)-g_gravity*m_ATIsensor*l_ATIsensor*cos(theta1_sitStand_dt1m)-l_shank*cos(theta1_sitStand_dt1m)*g_gravity*(m_thigh+m_itMotor+0.5*m_torso+0.5*m_head+m_upperArm+m_forearm+m_hand+0.5*m_load);
+
+
+
+
+figure('Color',[1 1 1])
+%plot(runTime_sitStand_exp,torqueKnee_sitStand_exp,'k');
+%hold on
+plot(runTime_sitStand_exp,torqueKnee_sitStand_computed,'b')
+hold on
+plot(runTime_sitStand_exp,torqueKnee_sitStand_dHeight_p,'r')
+hold on
+plot(runTime_sitStand_exp,torqueKnee_sitStand_dHeight_m,'g')
+hold on
+plot(runTime_sitStand_exp,torqueKnee_sitStand_dTheta1_p,'g')
+hold on
+plot(runTime_sitStand_exp,torqueKnee_sitStand_dTheta1_m,'g')
+
+legend 'Computed exp cond' 'plus delta height' 'minus delta height'
+xlabel 'Time (s)'
+ylabel 'Torque Knee [Nm]'
+title 'Sit Stand up task'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% figure('Color',[1 1 1])
+% plot(runTime,theta1,'b',runTime,theta2,'r',runTime,theta3,'g');
+% legend 'theta1' 'theta2' 'theta3'
+% xlabel 'Time (s)'
+% ylabel 'Theta (deg)'
+% title 'Knee torque estimation - sit to stand'
+% 
+% figure('Color',[1 1 1])
+% plot(runTime,Fz)
+% title 'Fz'
+
+% figure('Color',[1 1 1])
+% plot(data_file_A(:,1),'r');
+% figure('Color',[1 1 1])
+% plot(data_file_A(:,2),'b');
+% figure('Color',[1 1 1])
+% plot(data_file_A(:,3),'g');
+% figure('Color',[1 1 1])
+% plot(data_file_A(:,4),'k');
+% figure('Color',[1 1 1])
+% plot(data_file_A(:,5),'c');
+
+
+
+% i_start=1;
+% i_stop=size(data_file_K,1);
+% figure
+% plot(data_file_K(i_start:i_stop,1),data_file_K(i_start:i_stop,2),'r');
+% hold on
+% plot(data_file_K(i_start:i_stop,1),data_file_K(i_start:i_stop,3),'b');
+% figure
+% plot(data_file_K(i_start:i_stop,1),data_file_K(i_start:i_stop,4),'r');
+% hold on
+% plot(data_file_K(i_start:i_stop,1),data_file_K(i_start:i_stop,5),'b');
+% 
+% figure
+% plot(data_file_K(i_start:size(data_file_K,1),1),data_file_K(:,7))
+% hold on
+% plot(data_file_K(i_start:size(data_file_K,1),1),data_file_K(:,8),'r')
+% 
+% figure
+% plot(data_file_C(:,1),data_file_C(:,5))
+% plot(data_file_C(:,1),data_file_C(:,6))
+% plot(data_file_C(:,1),data_file_C(:,7))
+% plot3(data_file_C(:,5),data_file_C(:,6),data_file_C(:,7))
+% xlabel 'x'
+% ylabel 'y'
+% zlabel 'z'
+
+% figure
+% plot3(data_file_C(:,2),data_file_C(:,3),data_file_C(:,4),'o')
+% hold on
+% plot3(data_file_C(:,5),data_file_C(:,6),data_file_C(:,7),'o')
+% hold on 
+% plot3(data_file_C(:,8),data_file_C(:,9),data_file_C(:,10),'o')
+% xlabel 'x'
+% ylabel 'y'
+% zlabel 'z'
+
+
+
+
+

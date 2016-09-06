@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\IMU">
+      <UniqueIdentifier>{912ec63b-a5e7-445c-8328-b232b43167ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{c017abd3-0b48-4f56-8b2d-78d1f027e62a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IMU">
+      <UniqueIdentifier>{3eab0771-18c3-4efc-8a7c-7da0e3d2d600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{71bed973-1716-46b6-b70f-3d59854f44f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\VN_math.c">
+      <Filter>Source Files\IMU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\vn100.c">
+      <Filter>Source Files\IMU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\vn200.c">
+      <Filter>Source Files\IMU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\vndevice.c">
+      <Filter>Source Files\IMU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\src\arch\win32\vncp_services.c">
+      <Filter>Source Files\IMU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CPrecisionClock.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CThread.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\devMeasurementFns.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shTime.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stdafx.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UDP_Communication.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UDP_server.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils.c">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HapticActuator_workingHere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HumanBodyParam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HumanDynModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\userConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="devMeasurementFns.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\phil_board.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="shTime.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="UDP_Communication.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="UDP_server.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\utils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CPrecisionClock.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CThread.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\BoardLibrary.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vectornav.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_common.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_errorCodes.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_kinematics.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_linearAlgebra.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\VN_math.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn_math_window.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\VN_type.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn100.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vn200.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vncp_services.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vndevice.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IMU_AHRS_Sensor\vnccpplib-0.3.2_HERE\include\vnint.h">
+      <Filter>Header Files\IMU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HumanBodyParam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HumanDynModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\mUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

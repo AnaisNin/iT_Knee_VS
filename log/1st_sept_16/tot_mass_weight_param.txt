@@ -1,0 +1,2 @@
+double l_mass = 85.5;//55;
+double l_height = 1.83;//1.70;
